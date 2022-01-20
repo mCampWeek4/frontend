@@ -1,0 +1,7 @@
+.ingredientListBox {
+    /* border: 5px solid aqua; */
+    margin: 12px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+}

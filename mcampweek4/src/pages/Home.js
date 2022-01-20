@@ -1,12 +1,11 @@
 import { func } from 'prop-types';
 import React from 'react';
+import IngredientList from '../component/IngredientList';
 
-const Home = () => {
+export default function Home() {
     return (
         <div>
-            <h1>home</h1>
+            <IngredientList />
         </div>
     )
 }
-
-export default Home;
