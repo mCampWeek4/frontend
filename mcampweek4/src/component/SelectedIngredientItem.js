@@ -9,7 +9,7 @@ export default function IngredientItem({item, selectedList, setSelectedList}) {
     return(
         <button className="selectedIngredientItemButton" onClick={deleteIngredient}>
             <div className="selectedIngredientItemBox">
-                <img className="selectedIngredientItemImage" src={item.imgSrc} />
+                <img className="selectedIngredientItemImage" src={item.imageUrl} />
             </div>
             <p className="selectedIngredientItemName">{item.name}</p>    
         </button>

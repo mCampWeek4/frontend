@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import './Join.css';
 import {Link} from 'react-router-dom';
+import {createUser} from '../libs/newapi';
+
 
 export default function Join() {
     const [id, setId] = useState('');
@@ -20,13 +22,14 @@ export default function Join() {
         if(pwd === e.target.value) setLink('../Login');
         else setLink('');
     }
-    const join = () => {
+    const join = async() => {
         if(pwd !== pwdChk) {
             setPwd('');
             setPwdChk('');
             console.log('chk password again');
         }
         else {
+            await createUser(id, pwd);
             console.log('join success!');
         }
         console.log('id: ' + id + ' password: ' + pwd);

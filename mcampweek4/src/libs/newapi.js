@@ -2,30 +2,50 @@ import axios from 'axios';
 
 const baseUrl = 'http://192.249.18.111:443';
 
-const headers = (token) => {
-    return {
-    'Content-Type': 'application/json',
-    'Authorization': {token}
+const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
     };
-};
 
 //login related api
-export const fetchToken = async (name, password, token) => {
+
+
+export const fetchToken = async (name, password) => {
     try {
-        const response = axios.post(`${baseUrl}/login`, {
-            name: {name},
-            password: {password}
-        },
-        headers(token)
-        );
-        return response.data;
+        let response = await fetch(`${baseUrl}/login`, {
+        method: 'POST',
+        headers: {...headers,},
+        body: JSON.stringify({
+            "name": name,
+            "password": password
+          })
+      });
+      let json = await response.json();
+      return json;
     } catch (error) {
-        console.log(error);
+      console.error(error);
     }
-};
+  };
+
+export const createUser = async (name, password) => {
+    try {
+        let response = await fetch(`${baseUrl}/user/new`, {
+        method: 'POST',
+        headers: {...headers,},
+        body: JSON.stringify({
+            "name": name,
+            "password": password
+          })
+      });
+      let json = await response.json();
+      return json;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 //user related api
-export const newUser = async (password, token) => {
+export const editUser = async (password, token) => {
     try {
         const response = axios.post(`${baseUrl}/user/edit`, {
             password: {password}
@@ -38,19 +58,38 @@ export const newUser = async (password, token) => {
     }
 };
 
-//fridge related api
 export const fetchAllFridgeIngredient = async (userId, token) => {
     try {
-        const response = axios.get(`${baseUrl}/fridge/ingredient`, {
-            userId: {userId},
+        let response = await fetch(`${baseUrl}/fridge/ingredient`, {
+        method: 'POST',
+        headers: {
+          ...headers,
+          "Authorization": token,
         },
-        headers(token)
-        );
-        return response.data;
+        body: JSON.stringify({
+            "id": userId,
+        })
+      });
+      let json = await response.json();
+      return json;
     } catch (error) {
-        console.log(error);
+      console.error(error);
     }
-};
+  };
+
+//fridge related api
+// export const fetchAllFridgeIngredient = async (userId, token) => {
+//     try {
+//         const response = axios.get(`${baseUrl}/fridge/ingredient`, {
+//             userId: {userId},
+//         },
+//         headers(token)
+//         );
+//         return response.data;
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
 
 export const addFridgeIngredient = async (userId, ingredient, token) => {
