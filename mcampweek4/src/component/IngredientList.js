@@ -3,6 +3,7 @@ import './IngredientList.css';
 
 export default function IngredientList({list, selectedList, setSelectedList}) {
     if(list.length === 0) return null;
+    console.log(list);
     return(
         <div className="ingredientListBox">
             {list.map((item) => {
