@@ -21,7 +21,7 @@ export default function IngredientItem({item, selectedList, setSelectedList}) {
     return(
         <button className={`ingredientItemButton ${buttonStyle}`} onClick={selectItem}>
             <div className="ingredientItemBox">
-                <img className="ingredientItemImage" src={item.imgSrc} />
+                <img className="ingredientItemImage" src={item.imageUrl} />
             </div>
             <p className="ingredientItemName">{item.name}</p>
         </button>
