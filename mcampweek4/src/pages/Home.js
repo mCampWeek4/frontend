@@ -23,6 +23,7 @@ export default function Home() {
             var token = await fetchToken('1', '1');
             console.log(token.token);
             let res = await fetchAllFridgeIngredient(2, token.token);
+            window.localStorage.setItem("token", token.token);
             setList(res.allIngredient);
             console.log('123123123123')
             console.log(list)

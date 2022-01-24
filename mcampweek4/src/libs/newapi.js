@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { get } from 'react-scroll/modules/mixins/scroller';
 
 const baseUrl = 'http://192.249.18.111:443';
 
@@ -45,14 +46,17 @@ export const createUser = async (name, password) => {
   };
 
 //user related api
-export const editUser = async (password, token) => {
+export const editUser = async (name, password, token) => {
     try {
-        const response = axios.post(`${baseUrl}/user/edit`, {
-            password: {password}
-        },
-        headers(token)
-        );
-        return response.data;
+        const response = await fetch(`${baseUrl}/user/${name}/edit`, {
+            method: 'POST',
+            headers: {...headers, "Authorization": token},
+            body: JSON.stringify({
+                "password": password  
+            })
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
@@ -94,13 +98,19 @@ export const fetchAllFridgeIngredient = async (userId, token) => {
 
 export const addFridgeIngredient = async (userId, ingredient, token) => {
     try {
-        const response = axios.post(`${baseUrl}/fridge/ingredient/add`, {
-            userId: {userId},
-            ingredientId: {ingredient}
-        },
-        headers(token)
-        );
-        return response.data;
+        const response = await fetch(`${baseUrl}/fridge/ingredient/add`, {
+            method: 'POST',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            },
+            body: JSON.stringify({
+                "id": userId,
+                "ingredientId": ingredient
+            })
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
@@ -108,44 +118,59 @@ export const addFridgeIngredient = async (userId, ingredient, token) => {
 
 
 export const deleteFridgeIngredient = async (userId, ingredient, token) => {
-    try {
-        const response = axios.post(`${baseUrl}/fridge/ingredient/delete`, {
-            userId: {userId},
-            ingredientId: {ingredient}
-        },
-        headers(token)
-        );
-        return response.data;
+    try{
+        const response = await fetch(`${baseUrl}/fridge/ingredient/delete`, {
+            method: 'POST',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            },
+            body: JSON.stringify({
+                "id": userId,
+                "ingredientId": ingredient
+            })
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
 };
-
-
 
 //recipe related api
 export const fetchRecipe = async (ingredient, level, time, token) => {
     try {
-        const response = axios.get(`${baseUrl}/recipe`, {
-            ingredientIdString: {ingredient},
-            levelString: {level},
-            time: {time}
-        },
-        headers(token)
-        );
-        return response.data;
+        const response = await fetch(`${baseUrl}/recipe`, {
+            method: 'POST',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            },
+            body: JSON.stringify({
+                "ingredientIdString": ingredient,
+                "levelString": level,
+                "time": time
+            })
+        })
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
 };
 
-
-
 //food related api
 export const fetchAllFood = async (token) => {
     try {
-        const response = axios.get(`${baseUrl}/food`, headers(token));
-        return response.data;
+        const response = await fetch(`${baseUrl}/food`, {
+            method: 'GET',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            }
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
@@ -153,8 +178,15 @@ export const fetchAllFood = async (token) => {
 
 export const fetchSpecificFood = async (foodName, token) => {
     try {
-        const response = axios.get(`${baseUrl}/food/${foodName}`, headers(token));
-        return response.data;
+        const response = await fetch(`${baseUrl}/food/${foodName}`, {
+            method: 'GET',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            }
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
@@ -163,8 +195,15 @@ export const fetchSpecificFood = async (foodName, token) => {
 //ingredient related api
 export const fetchAllIngredient = async (token) => {
     try {
-        const response = axios.get(`${baseUrl}/ingredient`, headers(token));
-        return response.data;
+        const response = await fetch(`${baseUrl}/ingredient`, {
+            method: 'GET',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            }
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
@@ -172,10 +211,16 @@ export const fetchAllIngredient = async (token) => {
 
 export const fetchIngredient = async (foodId, token) => {
     try {
-        const response = axios.get(`${baseUrl}/ingredient/${foodId}`, headers(token));
-        return response.data;
+        const response = await fetch(`${baseUrl}/ingredient/${foodId}`, {
+            method: 'GET',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            }
+        });
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.log(error);
     }
 };
-
