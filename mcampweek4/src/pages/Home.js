@@ -24,7 +24,7 @@ export default function Home() {
         });
         setQuery('/Search?ingredients='+ingredientIds + '&level=' + level + '&time=' + time);
     }, [selectedList, level, time])
-    const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/'}];
+    const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
     const tab = [
         <div className="selectedIngredientList">
             <h2>선택한 재료</h2>
