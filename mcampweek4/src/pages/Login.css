@@ -1,3 +1,7 @@
+span {
+    font-family: "Cafe24";
+}
+
 .login {
  background-color: white;
  display: flex;
@@ -7,6 +11,8 @@
  /* width: 300px; */
  padding: 60px;
  border-radius: 36px;
+ position: absolute;
+
 }
 
 .pageTitle {
@@ -15,14 +21,12 @@
 }
 
 .loginPageWrapper {
-    justify-content: center;
-    display: flex;
     background-color: #FACE64;
+    /* padding: 60px; */
     height: 100vh;
-    flex-direction: column;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-
 }
 .loginInputWrapper {
     display: flex;
@@ -51,12 +55,12 @@
     margin-bottom: 6px;
 }
 
-.button {
+.loginButton {
     /* padding: 12px; */
-    border: 2px;
+    border: 2px #FACE64 solid;
     outline: 0;
     margin: 0;
-    padding: 12px;
+    padding: 8px;
     width: 100px;
     margin-top: 6px;
     margin-bottom: 6px;
@@ -66,11 +70,58 @@
     font-size: 18px;
     font-weight: 600;
     color: white;
+    border-radius: 8px;
 }
 
-.join {
-    background-color: white;
+.joinButton {
     border: 2px #FACE64 solid;
+    outline: 0;
+    margin: 0;
+    padding: 8px;
+    width: 100px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
     color: #FACE64;
-    
+    border-radius: 8px;
+}
+
+.loginLogo {
+    height: max-content;
+    width: max-content;
+    position: absolute;
+    top: 90px;
+}
+
+.loginLogoLargeText {
+    font-size: 60px;
+    margin: 0;
+    color: white;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-family: "Cafe24";
+}
+
+.loginLogoSmallText {
+    font-size: 48px;
+    margin: 0;
+    color: white;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-family: "Cafe24";
+}
+.borderLine {
+    background-color: #FACE64;
+    border: 4px white solid;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 90vh;
+    width: 92%;
 }

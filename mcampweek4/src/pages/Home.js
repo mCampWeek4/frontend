@@ -27,15 +27,15 @@ export default function Home() {
     const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/'}];
     const tab = [
         <div className="selectedIngredientList">
-            <h2>선택한 재료</h2>
+            <h2 className="articleTitle">선택한 재료</h2>
             <SelectedIngredientList selectedList={selectedList} setSelectedList={setSelectedList}/>
         </div>,
         <div className="selectedIngredientList">
-            <h2>조리 난이도</h2>
+            <h2 className="articleTitle">조리 난이도</h2>
             <LevelList level={level} setLevel={setLevel}/>
         </div>,
         <div className="selectedIngredientList">
-            <h2>조리 시간</h2>
+            <h2 className="articleTitle">조리 시간</h2>
             <CookingTimeList time={time} setTime={setTime}/>
         </div>
     ];
@@ -109,7 +109,7 @@ export default function Home() {
             </header>
             <main>
                 <div className="myIngredientList">
-                    <h2>냉장고 재료</h2>
+                    <h2 className="articleTitle">냉장고 재료</h2>
                     <IngredientList list={list} setList={setList} selectedList={selectedList} setSelectedList={setSelectedList}/>
                 </div>
                 <div className="filter">
