@@ -1,0 +1,21 @@
+.activeWrapper {
+    background-color: white;
+    width: 108px;
+    border-radius: 12px;
+    margin-right: 24px;
+}
+
+.Wrapper {
+    background-color: transparent;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.active {
+    color: #FE8221;
+}

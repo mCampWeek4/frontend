@@ -1,0 +1,64 @@
+.headerWrapper {
+    /* background-color: violet; */
+    height: 108px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px #FE8221 solid;
+    /* position: absolute; */
+    /* padding: 4px; */
+    background-color: white;
+    width: 80px;
+    height: 94px;
+}
+
+.orange {
+    color: #FE8221;
+}
+.yellow{
+    color: #FACE64;
+}
+
+.large {
+    font-size: 24px;
+    margin: 0;
+}
+
+.bold {
+    font-weight:bold;
+}
+.small{
+    font-size: 14px;
+    margin: 0;
+}
+
+.headerBox {
+    width: auto;
+    height: 48px;
+    background-color: #FACE64;
+    padding-left: 12px;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: row;
+}
+
+.homeLogin {
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.headerTabBarWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 4px;
+}

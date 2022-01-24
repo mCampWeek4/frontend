@@ -1,0 +1,68 @@
+.homePageWrapper {
+    margin: 0px;
+    /* background-color: rosybrown; */
+}
+
+.myIngredientList {
+    margin: 12px;
+}
+
+.selectedIngredientList {
+    margin: 12px
+}
+
+.homeHeader {
+    text-align: center;
+    /* background-color: red; */
+}
+
+.homeTitle {
+    margin: 0px;
+}
+
+.tabBar {
+    margin: 0;
+    /* background-color: saddlebrown; */
+}
+
+
+.button {
+    margin: 4px;
+    display: block;
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 8px;
+    outline: 0;
+    border: 0;
+}
+.next {
+    background-color: #face64;
+    color: white;
+    border: 2px #face64 solid;
+}
+.prev {
+    background-color: transparent;
+    color: #face64;
+    border: 2px #face64 solid;
+}
+.complete {
+    background-color: #FE8221;
+    color: white;
+}
+.loginButton {
+    background-color: transparent;
+    margin: auto;
+    display: block;
+    outline: 0;
+    border: 0;
+}
+
+.buttonHolder {
+    justify-content: center;
+    align-items: center;
+    /* background-color: thistle; */
+    margin: 12px;
+    flex-direction: row;
+    display: flex;
+}

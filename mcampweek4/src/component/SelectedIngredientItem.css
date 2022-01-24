@@ -1,4 +1,4 @@
-.ingredientItemBox {
+.selectedIngredientItemBox {
     width: 150px;
     height: 150px;
     border-radius: 70%;
@@ -6,35 +6,37 @@
     margin: 8px;
 }
 
-.ingredientItemImage {
+.selectedIngredientItemImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
     vertical-align: middle;
 }
 
-.ingredientItemName {
+.selectedIngredientItemName {
     text-align: center;
     font-size: 24px;
     font-weight: 400;
+    /* background-color: tomato; */
     margin-top: 12px;
     margin-bottom: 12px;
 }
 
-.ingredientItemButton {
+.selectedIngredientItemButton {
     border: 0;
     outline: 0;
     background-color: transparent;
     margin-right: 12px;
-    border: 2px #C9C9C9 solid;
     border-radius: 20px;
+    border: 2px #FACE64 solid;
+    height: 220px;
 }
 
-.ingredientItemButton:active {
+.selectedIngredientItemButton:active {
+    /* background-color: #9D7753; */
     opacity: 0.5;
 }
 
-.selected {
-    background-color: #face64;
-    border: 2px #face64 solid;
-}
+/* .selectedIngredientItemButton:visited {
+    background-color: blueviolet;
+} */

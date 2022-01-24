@@ -1,0 +1,50 @@
+.levelItemBox {
+    width: 150px;
+    height: 150px;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+}
+
+.levelItemImage {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.levelItemName {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    /* background-color: tomato; */
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.levelItemButton {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: max-content;
+    margin-left: 24px;
+    margin-right: 24px;
+    height: 220px;
+}
+
+.levelItemButton:active {
+    background-color: blue;
+}
+
+.levelItemButton:visited {
+    background-color: blueviolet;
+}
+
+.selectedLevelItem {
+    background-color: slategrey;
+}
