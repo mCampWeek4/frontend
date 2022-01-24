@@ -33,38 +33,39 @@ export default function Join() {
 
     };
     return (
-        <div>
-            <h1>회원가입 화면</h1>
-            <div className="join">
-                <div className="joinInputWrapper">
-                    <input
-                    placeholder="아이디"
-                    onChange={onChangeId}
-                    value={id}
-                    className="input"
-                    />
-                    <input
-                    placeholder="비밀번호"
-                    onChange={onChangePwd}
-                    value={pwd}
-                    className="input"
-                    type="password"
-                    />
-                    <input
-                    placeholder="비밀번호확인"
-                    onChange={onChangePwdChk}
-                    value={pwdChk}
-                    className="input"
-                    type="password"
-                    />
+        <div className="joinPageWrapper">
+            <div className="borderLine">
+                <div className="join">
+                    <p className="joinText">회원가입</p>
+                    <div className="joinInputWrapper">
+                        <input
+                        placeholder="아이디"
+                        onChange={onChangeId}
+                        value={id}
+                        className="input"
+                        />
+                        <input
+                        placeholder="비밀번호"
+                        onChange={onChangePwd}
+                        value={pwd}
+                        className="input"
+                        type="password"
+                        />
+                        <input
+                        placeholder="비밀번호확인"
+                        onChange={onChangePwdChk}
+                        value={pwdChk}
+                        className="input"
+                        type="password"
+                        />
+                    </div>
+                    <div className="joinButtonWrapper">
+                        <Link to={link} style={{textDecoration: 'none'}}>
+                            <button className="joinButtonJoinPage" onClick={join}>화원가입</button>
+                        </Link>
+                    </div>
                 </div>
-                <Link to={link}>
-                    <button className="joinButton" onClick={join}>화원가입</button>
-                </Link>
-                
             </div>
-            
-            
         </div>
     )
 

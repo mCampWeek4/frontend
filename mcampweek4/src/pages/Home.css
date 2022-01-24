@@ -20,6 +20,10 @@
     margin: 0px;
 }
 
+.articleTitle {
+    font-family: "Cafe24";
+}
+
 .tabBar {
     margin: 0;
     /* background-color: saddlebrown; */

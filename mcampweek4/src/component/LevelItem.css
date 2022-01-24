@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: skyblue;
+    background-color: white;
 }
 
 .levelItemImage {
@@ -29,7 +29,7 @@
     border: 0;
     outline: 0;
     background-color: transparent;
-    border: 1px solid black;
+    border: 2px solid #C9C9C9;
     border-radius: 20px;
     width: max-content;
     margin-left: 24px;
@@ -38,13 +38,10 @@
 }
 
 .levelItemButton:active {
-    background-color: blue;
-}
-
-.levelItemButton:visited {
-    background-color: blueviolet;
+    opacity: 0.5;
 }
 
 .selectedLevelItem {
-    background-color: slategrey;
+    background-color: #FACE64;
+    border: 2px #FACE64 solid;
 }

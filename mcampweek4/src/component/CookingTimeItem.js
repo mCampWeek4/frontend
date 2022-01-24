@@ -7,13 +7,19 @@ export default function CookingTimeItem({item, time, setTime}) {
         setTime(item);
     }
     const selected = item === time ? "selectedTimeItem" : "";
+    const text = item !== '상관없음' ? 
+    <button className={`timeItemButton ${selected}`} onClick={selectTime}>
+        <p className="timeText">{item}</p>
+        <p className="discriptionText">분</p>
+        <p className="discriptionText">이하</p> 
+    </button>:
+    <button className={`timeItemButton ${selected}`} onClick={selectTime}>
+        <p className="timeText">상관</p>
+        <p className="timeText">없음</p>
+    </button>;
     return (
         <div className="timeItemBox">
-            <button className={`timeItemButton ${selected}`} onClick={selectTime}>
-                <p className="timeText">{item}</p>
-                <p className="discriptionText">분</p>
-                <p className="discriptionText">이하</p> 
-            </button>
+            {text}
             
         </div>
     )

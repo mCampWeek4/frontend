@@ -17,33 +17,37 @@ export default function Login() {
     };
     return (
         <div className="loginPageWrapper">
-            <h1 className="pageTitle">냉장고를 부탁해</h1>
-            <div className="login">
-                <div className="loginInputWrapper">
-                    <input
-                    placeholder="아이디"
-                    onChange={onChangeId}
-                    value={id}
-                    className="input"
-                    />
-                    <input
-                    placeholder="비밀번호"
-                    onChange={onChangePwd}
-                    value={pwd}
-                    className="input"
-                    type="password"
-                    />
+            <div className="borderLine">
+                <div className="loginLogo">
+                    <p className="loginLogoLargeText">냉장고</p>
+                    <p className="loginLogoSmallText">를</p>
+                    <p className="loginLogoLargeText">부탁해</p>
                 </div>
-                <div className="loginButtonWrapper">
-                    <Link to='../Join' style={{textDecoration: 'none', display: 'flex', justifyContent: 'center'}}>
-                        <button className="button join">회원가입</button>
-                    </Link>
-                    <button className="button" onClick={login}>로그인</button>
+                <div className="login">
+                    <div className="loginInputWrapper">
+                        <input
+                        placeholder="아이디"
+                        onChange={onChangeId}
+                        value={id}
+                        className="input"
+                        />
+                        <input
+                        placeholder="비밀번호"
+                        onChange={onChangePwd}
+                        value={pwd}
+                        className="input"
+                        type="password"
+                        />
+                    </div>
+                    <div className="loginButtonWrapper">
+                        <Link to='../Join' style={{textDecoration: 'none'}}>
+                            <button className="joinButton">회원가입</button>
+                        </Link>
+                        <button className="loginButton" onClick={login}>로그인</button>
+                    </div>
+                    
                 </div>
-                
             </div>
-            
-            
         </div>
     )
 }
