@@ -1,11 +1,11 @@
 import React from 'react';
-import './HomeHeader.css';
+import './PageHeader.css';
 import {Link} from 'react-router-dom';
 import HeaderTabBar from './HeaderTabBar';
 
 
-export default function HomeHeader({tabBarList}) {
-    console.log(tabBarList)
+export default function PageHeader({tabBarList}) {
+    // console.log(tabBarList)
      return (
          <div className="headerWrapper">
             <div className="headerBox">

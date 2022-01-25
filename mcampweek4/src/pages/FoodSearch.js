@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import HomeHeader from './../component/HomeHeader';
+import PageHeader from '../component/PageHeader';
 import { fetchAllFood } from './../libs/newapi';
 import NameContainer from './../component/NameContainer';
 // import TextField from '@material-ui/core/TextField';
@@ -68,7 +68,7 @@ export default function FoodSearch() {
 
     return (
         <>
-        {/* <HomeHeader tabBarList={tabBarList}/> */}
+        {/* <PageHeader tabBarList={tabBarList}/> */}
             <div style={{textAlign: 'center', paddingTop:'30px'}}>
                 <input type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'/>
                 <NameContainer names={dynamicSearch()} />

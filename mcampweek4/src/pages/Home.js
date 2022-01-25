@@ -4,9 +4,9 @@ import LevelList from '../component/LevelList';
 import SelectedIngredientList from '../component/SelectedIngredientList';
 import './Home.css';
 import {Link} from 'react-router-dom';
-import HomeHeader from '../component/HomeHeader';
+import PageHeader from '../component/PageHeader';
 import CookingTimeList from '../component/CookingTimeList';
-import {fetchAllFridgeIngredient, fetchToken} from '../libs/newapi';
+import {fetchAllFridgeIngredient} from '../libs/newapi';
 
 export default function Home() {
     const [list, setList] = useState([]);
@@ -20,16 +20,21 @@ export default function Home() {
     const [query, setQuery] = useState('');
     useEffect(()=> {
         const init = async() => {
-            var token = await fetchToken('2', '2');
-            console.log(token.token);
-            let res = await fetchAllFridgeIngredient(2, token.token);
-            window.localStorage.setItem("token", token.token);
-            setList(res.allIngredient);
-            console.log('123123123123')
-            console.log(list)
+            
+            const userId = window.localStorage.getItem("userId");
+            const token = window.localStorage.getItem("token")
+            if(token) {
+                const res = await fetchAllFridgeIngredient(userId, token);
+                const myIngredientIds = res.myIngredient;
+                // console.log(myIngredientIds)
+                setList(myIngredientIds);
+            }
+        
         }
         init();
     }, []);
+    console.log('List: ')
+    console.log(list);
     useEffect(() => {
         var ingredientIds = '';
         selectedList.map((item) => {
@@ -110,8 +115,8 @@ export default function Home() {
     ]
     return (
         <div className="homePageWrapper">
-            <header className="homeHeader">
-                <HomeHeader tabBarList={tabBarList}/>
+            <header className="PageHeader">
+                <PageHeader tabBarList={tabBarList}/>
 
                 {/* <h1 className="homeTitle">냉장고를 부탁해</h1>
                 <div className="tabBar">
