@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import PageHeader from '../component/PageHeader';
 import { fetchAllFood } from './../libs/newapi';
 import NameContainer from './../component/NameContainer';
@@ -6,31 +6,19 @@ import NameContainer from './../component/NameContainer';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 import FoodContainer from './../component/FoodContainer';
 import './FoodSearch.css';
+import Login from './Login';
 
 
 export default function FoodSearch({tabBarList}) {
 
-
-    // const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
-
     const [foods, setFoods] = useState([]);
     const [all, setAll] = useState([]);
     const [searchTerm, setsearchTerm] = useState('');
+    const [focus, setFocus]= useState(false);
+
 
     console.log("Food search running");
 
-    // const getDataFromAPI = () => {
-    //     console.log("Options Fetched from API");
-    //     const token = window.localStorage.getItem("token");
-    //     const ans = fetchAllFood(token);
-    //     console.log(ans);
-        
-    //     for(var i=0; i < ans.length; i++){
-    //         console.log(ans[i].name);
-    //         myOptions.push(ans[i].name);
-    //     }
-    //     setMyOptions(myOptions);    
-    // }
     useEffect(async() => {
         console.log("Options Fetched from API");
         const token = window.localStorage.getItem("token");
@@ -60,20 +48,25 @@ export default function FoodSearch({tabBarList}) {
     
 
 
-
-    // const token = window.localStorage.getItem("token");
-    // const ans = fetchAllFood(token);
-    // console.log(ans);
-
-
     return (
         <>
         <PageHeader tabBarList={tabBarList}/>
             <div className="searchWrapper">
                 <div className="field">
-                <input className="foodInput" type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'/>
+                <input className="foodInput" type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'
+                    onFocus= {(e) => {
+                        console.log("focused on input");
+                        setFocus(true);
+                    }}
+                    onBlur= {(e) => {
+                        console.log("lost focus");
+                        setFocus(false);
+                    }}
+                />
                 </div>
-                <NameContainer names={dynamicSearch()} />
+                { (focus) ? <NameContainer names={dynamicSearch()} /> : <></> }
+                {/* <NameContainer names={dynamicSearch()} /> */}
+
             </div>
             <div className="foodWrapper"> 
             <FoodContainer foods={dynamicSearchAll()}/>
