@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import HeaderTabBar from './HeaderTabBar';
 
 
-export default function PageHeader({tabBarList}) {
+export default function PageHeader({tabBarList, setTabBarList}) {
     // console.log(tabBarList)
      return (
          <div className="headerWrapper">
@@ -15,7 +15,7 @@ export default function PageHeader({tabBarList}) {
                     <p className="large orange bold">부탁해</p>
                 </div>
                 <div className="headerTabBarWrapper">
-                    <HeaderTabBar tabBarList={tabBarList}/>
+                    <HeaderTabBar tabBarList={tabBarList} setTabBarList={setTabBarList}/>
                     <Link to='/Login' style={{textDecoration: 'none'}}>
                         <div className="homeLogin">
                             로그인

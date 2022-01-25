@@ -4,4 +4,5 @@
     /* border: 1px solid red; */
     justify-content: center;
     padding: 12px;
+    overflow: auto;
 }

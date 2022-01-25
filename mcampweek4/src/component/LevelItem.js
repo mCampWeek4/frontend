@@ -15,15 +15,16 @@ export default function LevelItem({item, level, setLevel}) {
         }
         
     }
+    const levelText = ['초급', '중급', '고급'];
     useEffect(()=>{
         if(level.includes(item)) setIsSelected(true);
         else setIsSelected(false);
     },[level])
     const selected = isSelected ? "selectedLevelItem" : "";
     const imgList = {
-        '초급': <img className="levelItemImage" src={BeginnerLevel} />,
-        '중급': <img className="levelItemImage" src={IntermediateLevel} />,
-        '고급': <img className="levelItemImage" src={AdvancedLevel} />
+        '1': <img className="levelItemImage" src={BeginnerLevel} />,
+        '2': <img className="levelItemImage" src={IntermediateLevel} />,
+        '3': <img className="levelItemImage" src={AdvancedLevel} />
     }
     return(
         <div className="levelItemWrapper">
@@ -31,7 +32,7 @@ export default function LevelItem({item, level, setLevel}) {
                 <div className="levelItemBox">
                     {imgList[item]}
                 </div>
-                <p className="levelItemName">{item}</p>
+                <p className="levelItemName">{levelText[parseInt(item) - 1]}</p>
                 
             </button>
             

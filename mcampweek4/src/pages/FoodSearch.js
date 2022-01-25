@@ -8,7 +8,7 @@ import FoodContainer from './../component/FoodContainer';
 
 
 
-export default function FoodSearch() {
+export default function FoodSearch({tabBarList}) {
 
 
     // const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
@@ -68,7 +68,7 @@ export default function FoodSearch() {
 
     return (
         <>
-        {/* <PageHeader tabBarList={tabBarList}/> */}
+        <PageHeader tabBarList={tabBarList}/>
             <div style={{textAlign: 'center', paddingTop:'30px'}}>
                 <input type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'/>
                 <NameContainer names={dynamicSearch()} />

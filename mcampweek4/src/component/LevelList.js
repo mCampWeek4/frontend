@@ -3,7 +3,7 @@ import './LevelList.css';
 
 
 export default function LevelList({level, setLevel}) {
-    const levelList = ["초급", "중급", "고급"];
+    const levelList = ["1", "2", "3"];
     return(
         <div className="levelListBox">
             {levelList.map((item) => {
