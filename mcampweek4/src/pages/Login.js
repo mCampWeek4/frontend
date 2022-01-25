@@ -1,23 +1,33 @@
 import React, {useState} from 'react';
 import './Login.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {fetchToken} from '../libs/newapi';
 
 
 export default function Login() {
     const [id, setId] = useState('');
     const [pwd, setPwd] = useState('');
-    const [token, setToken] = useState('');
     const onChangeId = (e) => {
         setId(e.target.value);
     }
     const onChangePwd = (e) => {
         setPwd(e.target.value);
     }
+    const navigate = useNavigate();
     const login = async() => {
         console.log('id: ' + id + ' password: ' + pwd);
-        setToken(await fetchToken(id, pwd));
-        console.log(token);
+        const token = await fetchToken(id, pwd);
+        if(token.token) {
+            window.localStorage.setItem("token", token.token);
+            window.localStorage.setItem("userId", token.id);
+            window.localStorage.setItem("userName", token.name);
+            // console.log(token.id)
+            navigate('/');
+        }
+        else {
+            setId('');
+            setPwd('');
+        }
 
     };
     return (

@@ -81,6 +81,22 @@ export const fetchAllFridgeIngredient = async (userId, token) => {
     }
   };
 
+export const fetchIngredientItem = async (id, token) => {
+    try {
+        let response = await fetch(`${baseUrl}/ingredient/specific/${id}`, {
+        method: 'GET',
+        headers: {
+          ...headers,
+          "Authorization": token,
+        },
+      });
+      let json = await response.json();
+      return json;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 //fridge related api
 // export const fetchAllFridgeIngredient = async (userId, token) => {
 //     try {
