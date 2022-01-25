@@ -20,7 +20,7 @@ export default function Home() {
     const [query, setQuery] = useState('');
     useEffect(()=> {
         const init = async() => {
-            var token = await fetchToken('1', '1');
+            var token = await fetchToken('2', '2');
             console.log(token.token);
             let res = await fetchAllFridgeIngredient(2, token.token);
             window.localStorage.setItem("token", token.token);
