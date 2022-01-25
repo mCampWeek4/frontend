@@ -5,7 +5,7 @@ import HeaderTabBar from './HeaderTabBar';
 
 
 export default function HomeHeader({tabBarList}) {
-    console.log(tabBarList)
+    // console.log(tabBarList)
      return (
          <div className="headerWrapper">
             <div className="headerBox">

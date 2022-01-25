@@ -5,13 +5,13 @@ import NameContainer from './../component/NameContainer';
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 import FoodContainer from './../component/FoodContainer';
-
+import './FoodSearch.css';
 
 
 export default function FoodSearch() {
 
 
-    // const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
+    const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
 
     const [foods, setFoods] = useState([]);
     const [all, setAll] = useState([]);
@@ -68,13 +68,16 @@ export default function FoodSearch() {
 
     return (
         <>
-        {/* <HomeHeader tabBarList={tabBarList}/> */}
-            <div style={{textAlign: 'center', paddingTop:'30px'}}>
-                <input type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'/>
+        <HomeHeader tabBarList={tabBarList}/>
+            <div className="searchWrapper">
+                <div className="field">
+                <input className="foodInput" type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'/>
+                </div>
                 <NameContainer names={dynamicSearch()} />
-                <FoodContainer foods={dynamicSearchAll()}/>
-
             </div>
+            <div className="foodWrapper"> 
+            <FoodContainer foods={dynamicSearchAll()}/>
+            </div> 
         </>
         
     )
