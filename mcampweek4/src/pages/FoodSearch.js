@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import HomeHeader from './../component/HomeHeader';
+import PageHeader from '../component/PageHeader';
 import { fetchAllFood } from './../libs/newapi';
 import NameContainer from './../component/NameContainer';
 // import TextField from '@material-ui/core/TextField';
@@ -8,10 +8,10 @@ import FoodContainer from './../component/FoodContainer';
 import './FoodSearch.css';
 
 
-export default function FoodSearch() {
+export default function FoodSearch({tabBarList}) {
 
 
-    const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
+    // const tabBarList = [{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}];
 
     const [foods, setFoods] = useState([]);
     const [all, setAll] = useState([]);
@@ -68,7 +68,7 @@ export default function FoodSearch() {
 
     return (
         <>
-        <HomeHeader tabBarList={tabBarList}/>
+        <PageHeader tabBarList={tabBarList}/>
             <div className="searchWrapper">
                 <div className="field">
                 <input className="foodInput" type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'/>

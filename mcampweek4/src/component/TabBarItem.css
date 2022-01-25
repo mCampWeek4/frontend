@@ -1,12 +1,18 @@
 .activeWrapper {
     background-color: white;
-    width: 108px;
     border-radius: 12px;
     margin-right: 24px;
+    text-align: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .Wrapper {
     background-color: transparent;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .title {

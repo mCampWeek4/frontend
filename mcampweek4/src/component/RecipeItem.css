@@ -1,0 +1,52 @@
+.recipeWrapper {
+    height: 400px;
+    width: 280px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border-radius: 32px;
+    align-self: center;
+    margin: 20px;
+}
+
+.easy {
+    border: 6px #C9C9C9 solid;
+}
+
+.medium {
+    border: 6px #FACE64 solid;
+}
+
+.hard {
+    border: 6px #FE8221 solid;
+}
+
+.recipeImageWrapper {
+    width: 240px;
+    height: 180px;
+    overflow: hidden;
+    justify-content: center;
+    /* background-color: teal; */
+    display: flex;
+    border-radius: 32px;
+    margin-top: 20px;
+}
+
+.recipeImage {
+    width: 100%;
+    height: 100%;
+}
+.recipeName {
+    margin: 0;
+    font-size: 28px;
+    margin-top: 12px;
+    font-family: "Cafe24";
+}
+
+.recipeDescription {
+    margin: 0;
+    font-size: 18px;
+    padding: 12px;
+}
