@@ -49,7 +49,7 @@ export default function FoodSearch() {
     }
 
     const dynamicSearch = (e) => {
-        if(searchTerm === '') return [''];
+        if(searchTerm === '') return [];
         else return foods.filter(food => food.toLowerCase().includes(searchTerm.toLowerCase()) );
     }
 
