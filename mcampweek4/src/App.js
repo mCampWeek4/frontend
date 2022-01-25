@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {Home, Login, Search, Join, FoodSearch} from './pages'
+import {Home, Login, Search, Join} from './pages'
 
 function App() {
     return (
@@ -9,8 +9,7 @@ function App() {
                 <Route path="/" element={<Home />}/>
                 <Route path="/Login" element={<Login />}/>
                 <Route path="/Search" element={<Search />}/>
-                <Route path="/Join" element={<Join />}/>
-                <Route path="/FoodSearch" element={<FoodSearch />}/>
+                <Route path="./Join" element={<Join />}/>
             </Routes>
             
         </div>
