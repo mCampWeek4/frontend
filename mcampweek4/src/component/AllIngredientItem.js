@@ -6,10 +6,12 @@ export default function IngredientItem({id, selectedList, setSelectedList}) {
     const token = window.localStorage.getItem("token");
     const [isSelected, setIsSelected] = useState(false);
     const [item, setItem] = useState();
+
     useEffect(async() => {
         let result = await fetchIngredientItem(id, token);
         setItem(result[0]);
     }, [])
+
     const selectItem = () => {
         if(!selectedList.includes(item)) {
             setSelectedList([...selectedList, item])
@@ -20,6 +22,18 @@ export default function IngredientItem({id, selectedList, setSelectedList}) {
         // console.log(selectedList)
         // console.log(typeof(selectedList))
     }
+
+    // useEffect(()=>{
+    //     if(selectedList.includes(item)){
+    //         setIsSelected(true);
+    //         setSelectedList([...selectedList, item]);
+    //     } 
+    //     else{
+    //         setIsSelected(false);
+    //         setSelectedList(selectedList.filter((chk) => chk !== item));
+    //     } 
+    // },[selectedList])
+
     useEffect(()=>{
         if(selectedList.includes(item)) setIsSelected(true);
         else setIsSelected(false);
