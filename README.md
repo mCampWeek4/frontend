@@ -6,7 +6,7 @@ MadCamp week 4
 냉장고 를 부탁해   
 
 ## 1. Member
-- Moon Seokhun
+- Moon Seokhoon
 - Kim Seungku
 - Jeon Seungyoon
 
