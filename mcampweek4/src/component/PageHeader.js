@@ -1,10 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './PageHeader.css';
 import {Link} from 'react-router-dom';
 import HeaderTabBar from './HeaderTabBar';
 
 
 export default function PageHeader({tabBarList, setTabBarList}) {
+    const [token, setToken] = useState(window.localStorage.getItem("token"));
+    useEffect(() => {
+        if(token) {
+            setLoggedIn(
+                <Link to='/Login' style={{textDecoration: 'none'}}>
+                <div className="homeLogin" onClick={logout}>
+                    로그아웃
+                </div>
+                </Link>
+                
+            )
+        }
+        else {
+            setLoggedIn(
+            <Link to='/Login' style={{textDecoration: 'none'}}>
+                <div className="homeLogin">
+                    로그인
+                </div>
+            </Link>);
+        }
+        
+    }, [token])
+    const [loggedIn, setLoggedIn] = useState();
+    console.log(token)
+    const logout = () => {
+        window.localStorage.setItem("token", null);
+        window.localStorage.setItem("userId", null);
+        window.localStorage.setItem("userName", null);
+        setToken(window.localStorage.getItem("token"));
+        setLoggedIn(<Link to='/Login' style={{textDecoration: 'none'}}>
+        <div className="homeLogin">
+            로그인
+        </div>
+    </Link>)
+    }
     // console.log(tabBarList)
      return (
          <div className="headerWrapper">
@@ -16,11 +51,7 @@ export default function PageHeader({tabBarList, setTabBarList}) {
                 </div>
                 <div className="headerTabBarWrapper">
                     <HeaderTabBar tabBarList={tabBarList} setTabBarList={setTabBarList}/>
-                    <Link to='/Login' style={{textDecoration: 'none'}}>
-                        <div className="homeLogin">
-                            로그인
-                        </div>
-                    </Link>
+                    {loggedIn}
                 </div>
 
                 
