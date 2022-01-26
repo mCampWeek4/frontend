@@ -25,22 +25,22 @@ MadCamp week 4
 
 ## 3. Page Details
 <p>
-    <img src="./image/5.png" width="50%">
-    <img src="./image/6.png" width="50%">
+    <img src="./image/5.PNG" width="50%">
+    <img src="./image/6.PNG" width="50%">
 </p>
 <p>
-    <img src="./image/7.png" width="50%">
-    <img src="./image/8.png" width="50%">
+    <img src="./image/7.PNG" width="50%">
+    <img src="./image/8.PNG" width="50%">
 </p>
 <p>
-    <img src="./image/9.png" width="50%">
+    <img src="./image/9.PNG" width="50%">
 </p>
 
 웹 페이지 "냉장고 를 부탁해"는 자취생들을 위해 레시들을 제공하는 사이트입니다.   
 `재료로 검색` 탭에서 재료들과 시간, 난이도를 골라 조건에 부합하는 레시피들을 검색할 수 있습니다.    
 
 <p>
-    <img src="./image/10.png" width="80%">
+    <img src="./image/10.PNG" width="80%">
 </p>
 <p></p>
 
@@ -48,7 +48,7 @@ MadCamp week 4
 검색된 결과는 작은 카드뷰로 출력되며, 이를 누를 시 더욱 자세한 레시피를 설명해주는 사이트로 넘어갑니다.   
 
 <p>
-    <img src="./image/11.png" width="80%">
+    <img src="./image/11.PNG" width="80%">
 </p>
 <p></p>
 
