@@ -22,9 +22,9 @@ export default function LevelItem({item, level, setLevel}) {
     },[level])
     const selected = isSelected ? "selectedLevelItem" : "";
     const imgList = {
-        '1': <img className="levelItemImage" src={BeginnerLevel} />,
-        '2': <img className="levelItemImage" src={IntermediateLevel} />,
-        '3': <img className="levelItemImage" src={AdvancedLevel} />
+        '1': <img className="levelItemImage" src={BeginnerLevel} alt="level img"/>,
+        '2': <img className="levelItemImage" src={IntermediateLevel} alt="level img" />,
+        '3': <img className="levelItemImage" src={AdvancedLevel} alt="level img"/>
     }
     return(
         <div className="levelItemWrapper">
