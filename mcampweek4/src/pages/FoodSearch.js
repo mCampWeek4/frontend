@@ -9,7 +9,7 @@ import './FoodSearch.css';
 import Login from './Login';
 
 
-export default function FoodSearch({tabBarList}) {
+export default function FoodSearch({tabBarList, setTabBarList}) {
 
     const [foods, setFoods] = useState([]);
     const [all, setAll] = useState([]);
@@ -50,7 +50,7 @@ export default function FoodSearch({tabBarList}) {
 
     return (
         <>
-        <PageHeader tabBarList={tabBarList}/>
+        <PageHeader tabBarList={tabBarList} setTabBarList={setTabBarList}/>
             <div className="searchWrapper">
                 <div className="field">
                 <input className="foodInput" type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'
