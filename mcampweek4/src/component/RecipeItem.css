@@ -74,3 +74,15 @@
     height: 2.4em;
     color: red
 }
+
+.foodTime {
+    margin: 0px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+.foodTimeWrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+
+}

@@ -44,6 +44,10 @@ export default function RecipeItem ({item, recipeId, queryString}) {
             <p className="recipeName">{item.name}</p>
             <p className="recipeDescription">{item.description}</p>
             <p className="moreIngredient">{ansString}</p>
+            <div className="foodTimeWrapper">
+                <p className="foodTime">{item.time + '분 소요'}</p>
+            </div>
+            
         </div>
     )
 }
