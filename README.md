@@ -59,7 +59,7 @@ MadCamp week 4
 
 ## 5. License
 ```
-    Copyright [2021] [seungkukim, MOONX, BUYA-GH]
+    Copyright [2021] [seungkukim, moonx010, BUYA-GH]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
