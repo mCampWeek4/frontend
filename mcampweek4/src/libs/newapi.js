@@ -175,6 +175,27 @@ export const fetchRecipe = async (ingredient, level, time, token) => {
     }
 };
 
+export const fetchMoreRecipe = async (ingredient, descriptionId , token) => {
+    try {
+        const response = await fetch(`${baseUrl}/recipe/more`, {
+            method: 'POST',
+            headers: {
+                ...headers,
+                "Authorization": token,
+            },
+            body: JSON.stringify({
+                "ingredientIdString": ingredient,
+                "description_id_recipe": descriptionId
+            })
+        })
+        let json = await response.json();
+        return json;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
 //food related api
 export const fetchAllFood = async (token) => {
     try {

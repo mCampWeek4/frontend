@@ -34,6 +34,7 @@ export default function MyFridge({tabBarList, setTabBarList}) {
 
                 const res2 = await fetchAllFridgeIngredient(userId, token);
                 const myIngredientIds = res2.myIngredient;
+                console.log("my ingredient");
                 console.log(myIngredientIds)
                 setSelectedList(myIngredientIds);
             }

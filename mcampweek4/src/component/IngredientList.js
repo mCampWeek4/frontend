@@ -6,7 +6,7 @@ import {useState} from 'react';
 export default function IngredientList({list, selectedList, setSelectedList}) {
     
     
-    console.log(list);
+    // console.log(list);
     if(list.length === 0) return null;
     
     return(

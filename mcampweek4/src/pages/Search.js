@@ -19,17 +19,13 @@ export default function Search({tabBarList, setTabBarList}) {
         }
         init();
     }, [])
-    // const requestIngredients
-    // ingredients.map((item) => {
-    //     if(item === '') 
-    // })
-
+ 
     return (
         <div>
             <PageHeader tabBarList={tabBarList} setTabBarList={setTabBarList} />
             <h1>검색 결과 화면</h1>
             <div className="recipeListContainer">
-                <RecipeList recipeList={recipeList} />
+                <RecipeList recipeList={recipeList} queryString={query.ingredients} />
             </div>
             
         </div>

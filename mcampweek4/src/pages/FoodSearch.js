@@ -51,20 +51,21 @@ export default function FoodSearch({tabBarList}) {
     return (
         <>
         <PageHeader tabBarList={tabBarList}/>
-            <div className="searchWrapper">
-                <div className="field">
+            <div className="searchWrapper"
+                onFocus= {(e) => {
+                    console.log("focused on input");
+                    setFocus(true);
+                }}
+                onBlur= {(e) => {
+                    console.log("lost focus");
+                    setFocus(false);
+                }}>
+                <div className="field" >
                 <input className="foodInput" type='text' value={searchTerm} onChange={editSeachTerm} placeholder='음식 입력'
-                    onFocus= {(e) => {
-                        console.log("focused on input");
-                        setFocus(true);
-                    }}
-                    onBlur= {(e) => {
-                        console.log("lost focus");
-                        setFocus(false);
-                    }}
+                    
                 />
                 </div>
-                { (focus) ? <NameContainer names={dynamicSearch()} /> : <></> }
+                { (focus) ? <NameContainer names={dynamicSearch()} setsearchTerm={setsearchTerm} /> : <></> }
                 {/* <NameContainer names={dynamicSearch()} /> */}
 
             </div>

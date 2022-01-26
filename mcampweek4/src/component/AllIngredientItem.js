@@ -10,6 +10,7 @@ export default function IngredientItem({id, selectedList, setSelectedList}) {
     useEffect(async() => {
         let result = await fetchIngredientItem(id, token);
         setItem(result[0]);
+        // console.log(result);
     }, [])
 
     const selectItem = () => {
@@ -23,16 +24,17 @@ export default function IngredientItem({id, selectedList, setSelectedList}) {
         // console.log(typeof(selectedList))
     }
 
-    // useEffect(()=>{
-    //     if(selectedList.includes(item)){
-    //         setIsSelected(true);
-    //         setSelectedList([...selectedList, item]);
-    //     } 
-    //     else{
-    //         setIsSelected(false);
-    //         setSelectedList(selectedList.filter((chk) => chk !== item));
-    //     } 
-    // },[selectedList])
+    useEffect(()=>{
+        if(selectedList.includes(item)){
+            console.log("*");
+            setIsSelected(true);
+            setSelectedList([...selectedList, item]);
+        } 
+        else{
+            setIsSelected(false);
+            setSelectedList(selectedList.filter((chk) => chk !== item));
+        } 
+    },[])
 
     useEffect(()=>{
         if(selectedList.includes(item)) setIsSelected(true);
