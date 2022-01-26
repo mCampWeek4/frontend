@@ -5,6 +5,14 @@ import HeaderTabBar from './HeaderTabBar';
 
 
 export default function PageHeader({tabBarList, setTabBarList}) {
+
+//     const logout = () => {
+//         console.log("logout success");
+//         window.localStorage.setItem("token", null);
+//         // this.props.
+
+//     }
+
     const [token, setToken] = useState(window.localStorage.getItem("token"));
     useEffect(() => {
         if(token) {
@@ -30,9 +38,10 @@ export default function PageHeader({tabBarList, setTabBarList}) {
     const [loggedIn, setLoggedIn] = useState();
     console.log(token)
     const logout = () => {
-        window.localStorage.setItem("token", null);
-        window.localStorage.setItem("userId", null);
-        window.localStorage.setItem("userName", null);
+        
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("userId");
+        window.localStorage.removeItem("userName");
         setToken(window.localStorage.getItem("token"));
         setLoggedIn(<Link to='/Login' style={{textDecoration: 'none'}}>
         <div className="homeLogin">
@@ -51,6 +60,29 @@ export default function PageHeader({tabBarList, setTabBarList}) {
                 </div>
                 <div className="headerTabBarWrapper">
                     <HeaderTabBar tabBarList={tabBarList} setTabBarList={setTabBarList}/>
+
+                    {/* {
+                        (window.localStorage.getItem("token") !== null) 
+                        ?   
+                        <>
+                            <Link to='/MyFridge' style={{textDecoration: 'none'}}>
+                                <div className="homeLogin">
+                                    my 냉장고
+                                </div>
+                            </Link>
+                            <Link to='/Login' style={{textDecoration: 'none'}}  onClick={logout}>
+                                <div className="homeLogin">
+                                    로그아웃
+                                </div>
+                            </Link>
+                        </>
+                        :   
+                            <Link to='/Login' style={{textDecoration: 'none'}}>
+                                <div className="homeLogin">
+                                    로그인
+                                </div>
+                            </Link>
+                    } */}
                     {loggedIn}
                 </div>
 

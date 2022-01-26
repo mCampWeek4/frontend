@@ -1,45 +1,42 @@
 import './IngredientItem.css';
 import {useEffect, useState} from 'react';
-import {fetchIngredientItem} from '../libs/newapi';
+import {addFridgeIngredient, deleteFridgeIngredient} from '../libs/newapi';
 
-export default function IngredientItem({id, selectedList, setSelectedList}) {
+export default function IngredientItem({item, myIngredient, setMyIngredient, reload, setReload}) {
     const token = window.localStorage.getItem("token");
+    const userId  = window.localStorage.getItem("userId");
     const [isSelected, setIsSelected] = useState(false);
-    const [item, setItem] = useState();
 
-    useEffect(async() => {
-        let result = await fetchIngredientItem(id, token);
-        setItem(result[0]);
-        // console.log(result);
-    }, [])
-
-    const selectItem = () => {
-        if(!selectedList.includes(item)) {
-            setSelectedList([...selectedList, item])
+    const selectItem = async() => {
+        var include = false;
+        myIngredient.map((chk) => {
+            if(item.id === chk.ingredientIdFridge) include = true;
+        })
+        if(!include) {
+            await addFridgeIngredient(userId, item.id, token);
+        setReload(!reload);
         }
         else {
-            setSelectedList(selectedList.filter((chk) => chk !== item))
+            await deleteFridgeIngredient(userId, item.id, token);
+
+        setReload(!reload);
         }
-        // console.log(selectedList)
-        // console.log(typeof(selectedList))
+        // console.log(myIngredient)
+        // console.log(typeof(myIngredient))
     }
 
     useEffect(()=>{
-        if(selectedList.includes(item)){
-            console.log("*");
+        var include = false;
+        myIngredient.map((chk) => {
+            if(item.id === chk.ingredientIdFridge) include = true;
+        })
+        if(include){
             setIsSelected(true);
-            setSelectedList([...selectedList, item]);
         } 
         else{
             setIsSelected(false);
-            setSelectedList(selectedList.filter((chk) => chk !== item));
         } 
-    },[])
-
-    useEffect(()=>{
-        if(selectedList.includes(item)) setIsSelected(true);
-        else setIsSelected(false);
-    },[selectedList])
+    },[myIngredient]);
     
     const buttonStyle = isSelected ? "selected" : "";
     if(item === undefined) return null;

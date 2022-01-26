@@ -3,7 +3,7 @@ import IngredientList from '../component/IngredientList';
 import LevelList from '../component/LevelList';
 import SelectedIngredientList from '../component/SelectedIngredientList';
 import './Home.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import PageHeader from '../component/PageHeader';
 import CookingTimeList from '../component/CookingTimeList';
 import {fetchAllFridgeIngredient} from '../libs/newapi';
@@ -18,16 +18,24 @@ export default function Home({tabBarList, setTabBarList}) {
     const [level, setLevel] = useState([]);
     const [time, setTime] = useState('')
     const [query, setQuery] = useState('');
+    const navigate = useNavigate();
+    
     useEffect(()=> {
         const init = async() => {
             
             const userId = window.localStorage.getItem("userId");
             const token = window.localStorage.getItem("token")
+            
             if(token) {
                 const res = await fetchAllFridgeIngredient(userId, token);
                 const myIngredientIds = res.myIngredient;
                 // console.log(myIngredientIds)
                 setList(myIngredientIds);
+                console.log('loggedin')
+            }
+            else {
+                console.log('not logged in')
+                navigate('/Login');
             }
         
         }

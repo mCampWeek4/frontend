@@ -3,7 +3,7 @@ import {Route, Routes} from 'react-router-dom';
 import {Home, Login, Search, Join, FoodSearch, MyFridge } from './pages'
 
 function App() {
-    const [tabBarList, setTabBarList] = useState([{active: true, title: "레시피 검색", link:'/'}, {active: false, title: "다른 탭", link: '/FoodSearch'}]);
+    const [tabBarList, setTabBarList] = useState([{active: true, title: "재료로 검색", link:'/'}, {active: false, title: "요리 검색", link: '/FoodSearch'}, {active: false, title: "내 냉장고", link: '/MyFridge'}]);
     return (
         <div className="App">
             <Routes>

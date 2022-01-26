@@ -1,9 +1,7 @@
 import AllIngredientItem from './AllIngredientItem';
 import './IngredientList.css';
-import {fetchIngredientItem} from '../libs/newapi';
-import {useState} from 'react';
 
-export default function AllIngredientList({list, selectedList, setSelectedList}) {
+export default function AllIngredientList({list, myIngredient, setMyIngredient, reload, setReload}) {
     
     
     // console.log(list);
@@ -11,10 +9,10 @@ export default function AllIngredientList({list, selectedList, setSelectedList})
     
     return(
         <div className="ingredientListBox">
-            {list.map((id) => {
+            {list.map((item) => {
                 // console.log(item[0]);
-                if(id !== undefined) {
-                    return <AllIngredientItem id={id.id} selectedList={selectedList} setSelectedList={setSelectedList}/>
+                if(item.id !== undefined) {
+                    return <AllIngredientItem item={item} myIngredient={myIngredient} setMyIngredient={setMyIngredient} reload={reload} setReload={setReload}/>
                 }
                 else return null;
             })}

@@ -29,6 +29,7 @@
     margin-right: 12px;
     border: 2px #C9C9C9 solid;
     border-radius: 20px;
+    margin-top: 12px;
 }
 
 .ingredientItemButton:active {
